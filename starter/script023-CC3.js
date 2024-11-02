@@ -13,3 +13,30 @@
 // 7. Utilisez la fonction 'calculateurPourboire' pour calculer les pourboires pour chaque facture du tableau 'factures' et ajoutez-les au tableau 'pourboires'.
 // 8. Pour chaque facture, calculez le montant final payé en ajoutant le montant de la facture au montant du pourboire, puis ajoutez-le au tableau 'montantsFinaux'.
 // 9. Affichez les tableaux 'pourboires' et 'montantsFinaux' dans la console pour voir les résultats.
+
+const factures=[150,200,50];
+function calculateurPourboire(facture) {
+    let pourboire;
+    if (facture < 50) {
+        pourboire = facture * 0.20;
+    } else if (facture >= 50 && facture <= 200) {
+        pourboire = facture * 0.15;
+    } else {
+        pourboire = facture * 0.10;
+    }
+    return pourboire;
+}
+const pourboires=[];
+const montantsFinaux=[];
+
+for (let i = 0; i < factures.length; i++) {
+    const pourboire = calculateurPourboire(factures[i]);
+    pourboires.push(pourboire);
+    const montantFinal = factures[i] + pourboire;
+    montantsFinaux.push(montantFinal);
+}
+console.log("Pourboires : ", pourboires);
+console.log("Montants finaux : ", montantsFinaux);
+/*
+1. Ligne 8, comment je fait pour calculer le % d'une somme que je ne connais pas ?
+*/
